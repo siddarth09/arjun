@@ -1,0 +1,28 @@
+<launch>
+  <!-- Arguments -->
+  <arg name="model" default="$(find arjunamr_description)/urdf/arjunamr.xacro"/>
+  <arg name="configuration_basename" default="/scan"/>
+  <arg name="set_base_frame" default="base_link"/>
+  <arg name="set_odom_frame" default="odom"/>
+  <arg name="set_map_frame"  default="map"/>
+
+  <!--static transform-->
+  <node pkg="arjun" type="static_transform.py" name="tf_base_Lidar"  output="screen">
+  </node>
+
+  <!-- Gmapping -->
+  <node pkg="gmapping" type="slam_gmapping" name="arjun_slam_gmapping" output="screen">
+    <param name="base_frame" value="$(arg set_base_frame)"/>
+    <param name="odom_frame" value="$(arg set_odom_frame)"/>
+    <param name="map_frame"  value="$(arg set_map_frame)"/>
+    <rosparam command="load" file="$(find arjun)/slam/config/gmapping_params.yaml" />
+  </node>
+  <!--RVIZ-->
+  <arg default="true" name="gui"/>
+  <arg default="$(find arjunamr_description)/launch/urdf.rviz" name="rvizconfig"/>
+  <param command="$(find xacro)/xacro $(arg model)" name="robot_description"/>
+  <param name="use_gui" value="$(arg gui)"/>
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+  <node args="-d $(arg rvizconfig)" name="rviz" pkg="rviz" required="true" type="rviz"/>
+</launch>
