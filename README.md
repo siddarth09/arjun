@@ -25,3 +25,10 @@ This robot world can be simulated in Gazebo for testing various problems, the ho
 
 To run the house simulation 
 `roslaunch arjun amr_house.launch`
+
+## SLAM 
+Simultaneous localization and mapping (SLAM) is the computational problem of constructing or updating a map of an unknown environment while simultaneously keeping track of an agent's location within it. Here we are using frontier mapping, gmapping, Hector-slam packages to map the given environment for navigation purposes
+
+To run Gmapping package
+`roslaunch arjun arjun_gmapping.launch`
+
