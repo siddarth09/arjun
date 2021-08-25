@@ -1,5 +1,5 @@
 # ARJUN robot
-Arjun is a basic robot with camera and laser scanner similar to hardware based robot configuration, this can be used for eductaional, experimental learning of ROS
+Arjun is a basic robot with camera and laser scanner similar to hardware based robot configuration, this can be used for educational, experimental learning of ROS
 
 ## Installation
 
