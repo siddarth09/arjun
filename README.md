@@ -2,6 +2,8 @@
 Arjun is a basic robot with camera and laser scanner similar to hardware based robot configuration, this can be used for educational, experimental learning of ROS
 
 
+![ARJUN](https://user-images.githubusercontent.com/60263608/130914758-250ca2b8-dc53-48ce-a078-837f06960a6d.png)
+
 ## Installation
 
 ```bash
