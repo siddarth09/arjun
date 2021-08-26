@@ -61,6 +61,7 @@ Here ROS comes with default DWA or **DYNAMIC WINDOW APPROACH** which uses Dijkas
 To run the navigation stack 
 
 ```bash
-roslaunch arjun arjun_navigation.launch
+roslaunch arjun arjun_navigation.launch map_file:=
 ```
-#### MAKE SURE YOU HAVE MAPPED YOU ENVIRONMENT PROPERLY
+#### MAKE SURE YOU HAVE MAPPED YOU ENVIRONMENT PROPERLY and SPECIFY THE MAP LOCATION AT MAP_FILE ARGUMENT 
+
