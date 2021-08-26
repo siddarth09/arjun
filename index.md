@@ -1,37 +1,43 @@
-## Welcome to GitHub Pages
+# ARJUN robot
+Arjun is a basic robot with camera and laser scanner similar to hardware based robot configuration, this can be used for educational, experimental learning of ROS
 
-You can use the [editor on GitHub](https://github.com/siddarth09/arjun/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+![ARJUN](https://user-images.githubusercontent.com/60263608/130914758-250ca2b8-dc53-48ce-a078-837f06960a6d.png)
 
-### Markdown
+## Installation
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+```bash
+cd ~/catkin_ws/src
+git clone https://github.com/siddarth09/arjun.git
+cd ..
+catkin_make
+```
+Note:
+> Please change the catkin_ws to your custom rosworkspace name 
 
-```markdown
-Syntax highlighted code block
+## TELE-OPERATION
+The teleop keys are customised according to the robot configuration ie; the hardware bot, you can make changes to the friction between wheels or increase the max speed so the wheels of your bo motors can move faster
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```bash
+roslaunch arjun teleop_key.launch
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+The above command can be used to run the teleop node in your pc 
 
-### Jekyll Themes
+## HOUSE SIMULATION
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/siddarth09/arjun/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+This robot world can be simulated in Gazebo for testing various problems, the house contains three rooms with one narrow passage to check robot navigation in such conditions
 
-### Support or Contact
+To run the house simulation 
+```bash
+roslaunch arjun amr_house.launch
+```
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+## SLAM 
+Simultaneous localization and mapping (SLAM) is the computational problem of constructing or updating a map of an unknown environment while simultaneously keeping track of an agent's location within it. Here we are using frontier mapping, gmapping, Hector-slam packages to map the given environment for navigation purposes
+
+To run Gmapping package
+``` bash
+roslaunch arjun arjun_gmapping.launch
+```
+
